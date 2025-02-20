@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vondráček</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>WA - první web</h1>
+        </header>
+        <nav>
+            <!-- Navigace pomocí odrážek -->
+            <ul>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Kontakt</a></li>
+
+            </ul>
+        </nav>
+        <main>
+            <div class="content-wrapper">
+                <section class="grid-container">
+                    <article class="card">
+                        <h2>První článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit <a href="#">TEST ODKAZ</a> Esse sequi distinctio, delectus quaerat nisi corporis inventore nam libero suscipit? Voluptatem, maiores. A, optio amet quisquam debitis neque corporis molestias iusto.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Druhý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, minima, obcaecati odit architecto aliquid asperiores mollitia hic illo at sapiente voluptates corporis vel expedita delectus nulla, repudiandae quas minus autem.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Třetí článek</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint accusantium corrupti voluptatum velit magni! Vero veniam deserunt fugit. Quidem amet dignissimos vel illo atque recusandae officia minus ea suscipit quam.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Čtvrtý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sed possimus tempore quisquam tenetur consectetur numquam commodi, quod dolor dolore eveniet unde. Modi et impedit odio perferendis autem non ad.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Pátý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, a beatae. Ab voluptas voluptatem similique doloremque dolorem modi illo voluptates cum. Repudiandae sed voluptates quae iure explicabo molestiae voluptatum adipisci.</p>
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 Matyáš Vondráček</p>
+            <input type="color" id="colorPicker" value="#f3419a">
+        </footer>
+    </div>
+    <h1>Nadpis - barva se bude měnit</h1>
+    <script>
+        const colorPicker = document.getElementById('colorPicker');
+        const body = document.body;
+        const textElements = document.querySelectorAll('h1, p');
+
+
+        colorPicker.addEventListener('input', () => {
+            const color = colorPicker.value;
+            body.style.background = color;
+           
+            // Převod hex na RGB
+            const r = parseInt(color.substr(1, 2), 16);
+            const g = parseInt(color.substr(3, 2), 16);
+            const b = parseInt(color.substr(5, 2), 16);
+           
+            // Výpočet světlosti (luminance) podle vnímání oka
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+           
+            // Pokud je světlost vysoká, nastavíme černý text, jinak bílý
+            const textColor = luminance > 0.5 ? 'black' : 'white';
+            textElements.forEach(el => el.style.color = textColor);
+        });
+    </script>
+</body>
+</html>
